@@ -4,23 +4,26 @@ import React from "react";
 import Home from "../Screens/Home";
 import About from "../Screens/About";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Header from "../shared/header";
 
 
 const Stack = createNativeStackNavigator();
 
-const MainStackNavigator = () => {
+const MainStackNavigator = ({navigation}) => {
     return (
       <Stack.Navigator
-        screenOptions={{
+      
+        screenOptions={ {
+            
           headerStyle: {
             backgroundColor: "#4dced8",
           },
           headerTintColor: "white",
           headerBackTitle: "Back",
-          headerShown:false
+          
         }}
       >
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Home" options={{ headerTitle : ()=> <Header navigation={navigation} /> }} component={Home} />
         <Stack.Screen name="About" component={About} />
       </Stack.Navigator>
     );

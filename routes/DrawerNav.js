@@ -20,6 +20,7 @@ const DrawerNav = () => {
           },
           headerTintColor: "white",
           headerBackTitle: "Back",
+          headerShown:false
         }}
       >
         <Stack.Screen name="Home" component={MainStackNavigator} />
